@@ -158,6 +158,8 @@ scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 // What is the current mass of a crate?
 scene.childNode(withName: "one of the crates")?.physicsBody?.mass
 
+//scene.childNode(withName: "one of the crates")?.physicsBody?.mass = 0.05
+
 // What is the current mass of the boulder?
 boulder.physicsBody?.mass
 
@@ -203,9 +205,37 @@ scene.physicsWorld.gravity
 
 // Exercise 1: Write your code below.
 boulder.physicsBody?.restitution
-boulder.physicsBody?.restitution = 1.0
+boulder.physicsBody?.restitution = 0.2
 
 // Exercise 2: Write your code below.
+//
+//if let thisNode = node as? SKSpriteNode {
+//
+//    // Only the crates
+//    if thisNode.name == "one of the crates" {
+//
+//       scene.childNode(withName: "one of the crates")?.physicsBody?.restitution
+//          scene.childNode(withName: "one of the crates")?.physicsBody?.restitution = 1.0
+//    }
+//
+//}
+for node in scene.children {
+
+    // Only look at nodes of type SKSpriteNode
+    if let thisNode = node as? SKSpriteNode {
+
+        // Only the crates
+        if thisNode.name == "one of the crates" {
+
+            scene.childNode(withName: "one of the crates")?.physicsBody?.restitution
+            scene.childNode(withName: "one of the crates")?.physicsBody?.restitution = 1.0
+        }
+
+    }
+
+}
+
+
 
 // Exercise 3: Write your code below.
 
